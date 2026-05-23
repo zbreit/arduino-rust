@@ -1,0 +1,24 @@
+[package]
+name = "blink-with-pac"
+version = "0.1.0"
+edition = "2024"
+
+# Disable testing
+[[bin]]
+name = "blink-with-pac"
+path = "src/main.rs"
+test = false
+doctest = false
+bench = false
+
+[dependencies]
+avr-device = { version = "0.8.1", features = ["atmega328p", "rt"] }
+
+# These lines solve the following error:
+# > error: unwinding panics are not supported without std
+# The default panic behavior is to unwind the stack, which does not work
+# on no_std targets.
+[profile.dev]
+panic = "abort"
+[profile.release]
+panic = "abort"

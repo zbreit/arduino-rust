@@ -1,0 +1,14 @@
+[build]
+# See https://doc.rust-lang.org/nightly/rustc/platform-support/avr-none.html
+# for info on this target.
+target = "avr-none"
+rustflags = ["-C", "target-cpu=atmega328p"]
+
+# We need to build the std library each time based on the selected AVR
+# device since the devices are not ABI-compatible.
+[unstable]
+build-std = ["core"]
+
+# Use ravedude tool from the avr_hal create to execute code!
+[target.'cfg(target_arch = "avr")']
+runner = "ravedude"
