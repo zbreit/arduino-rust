@@ -1,0 +1,9 @@
+# Ravedude is a cargo runner that hooks up avrdude to
+# Rust infrastructure. See https://github.com/fcoury/avr-hal/blob/main/ravedude/README.md
+# for more info.
+[general]
+board = "uno"
+
+# ravedude should open a serial console after flashing
+open-console = true
+serial-baudrate = 57600

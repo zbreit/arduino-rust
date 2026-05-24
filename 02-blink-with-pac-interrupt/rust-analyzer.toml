@@ -1,0 +1,6 @@
+# Don't build all targets (test, benches, ...).
+# This *should* prevent the following rust-analyzer warning:
+# > can't find crate for `test`
+# However, it doesn't appear to work.
+[cargo]
+allTargets = false

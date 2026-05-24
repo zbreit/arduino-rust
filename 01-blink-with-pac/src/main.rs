@@ -4,6 +4,8 @@
 // Rust nightly (see https://internals.rust-lang.org/t/reintroduce-main-functions-to-no-std-targets/23015)
 // and https://docs.rust-embedded.org/book/start/qemu.html for more info.
 #![no_main]
+// Don't allow the use of unsafe code.
+#![deny(unsafe_code)]
 
 /// Here's a panic handler that does nothing. Panic handlers are required in no_std
 /// environments.

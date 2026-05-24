@@ -1,0 +1,20 @@
+[package]
+name = "blink-with-pac-interrupt"
+version = "0.1.0"
+edition = "2024"
+
+# Disable testing to avoid "can't find crate for `test`" rust-analyzer
+# errors
+[[bin]]
+name = "blink-with-pac-interrupt"
+path = "src/main.rs"
+test = false
+doctest = false
+bench = false
+
+[dependencies]
+avr-device = { version = "0.8.1", features = ["rt", "atmega328p"] }
+
+[profile]
+dev.panic = "abort"
+release.panic = "abort"

@@ -3,7 +3,8 @@ name = "blink-with-pac"
 version = "0.1.0"
 edition = "2024"
 
-# Disable testing
+# Disable testing to avoid "can't find crate for `test`" rust-analyzer
+# errors
 [[bin]]
 name = "blink-with-pac"
 path = "src/main.rs"
