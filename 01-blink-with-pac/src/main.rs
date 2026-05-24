@@ -8,14 +8,14 @@
 /// Here's a panic handler that does nothing. Panic handlers are required in no_std
 /// environments.
 #[panic_handler]
-fn panic(_info: &core::panic::PanicInfo) -> ! {
+pub fn panic(_info: &core::panic::PanicInfo) -> ! {
     loop {
         avr_device::asm::sleep();
     }
 }
 
 /// Busy sleeps for the requested number of milliseconds
-fn sleep_ms(ms: u32) {
+pub fn sleep_ms(ms: u32) {
     const CLOCK_FREQ_HZ: u32 = 16_000_000;
     const MS_PER_S: u32 = 1000;
     let cycles = CLOCK_FREQ_HZ / MS_PER_S * ms;
