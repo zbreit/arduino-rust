@@ -7,7 +7,6 @@ edition = "2024"
 # errors
 [[bin]]
 name = "blink-with-pac"
-path = "src/main.rs"
 test = false
 doctest = false
 bench = false

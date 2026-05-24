@@ -38,3 +38,18 @@ cargo +stable install --locked ravedude
 Now, you can configure your target architecture, CPU, and runner behavior in `.cargo/config.toml`.
 
 You likely have to build with `cargo run --release` since the ROM size on the atmega328p is fairly small.
+
+## Setup with avr-hal
+
+To use `avr-hal`, the simplest way to setup is to use `cargo-generate`. First, we have to install it.
+
+```bash
+# I had to use the `--locked` arg due to the following error: error[E0433]: cannot find `rhai` in the crate root
+cargo install cargo-generate
+```
+
+Finally, we can build a project based on the template:
+
+```bash
+cargo generate --git https://github.com/Rahix/avr-hal-template.git
+```
